@@ -1,40 +1,38 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
 
-export default function ConsultarPassageiro() {
+export default function ConsultarCorridas() {
 
-    const [passageiro, setPassageiro] = useState([]);
+    const [corrida, setCorrida] = useState([]);
 
     useEffect(() => {
-        async function pegaPassageiros() {
-            const resposta = await api.get("/passageiros");
+        async function pegaCorridas() {
+            const resposta = await api.get("/corridas");
             if (resposta.status === 200) {
-                setPassageiro(resposta.data);
+                setCorrida(resposta.data);
             }
             console.log(resposta.data);
         }
-        pegaPassageiros();
+        pegaCorridas();
     }, []);
 
 
     return (<table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome do Passageiro</th>
-                <th scope="col">Data de Nascimento</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Sexo</th>
+                <th scope="col">Id da Corrida</th>
+                <th scope="col">ID do Passageiro</th>
+                <th scope="col">ID do Motorista</th>
+                <th scope="col">Valor da corrida</th>
             </tr>
         </thead>
         <tbody>
-            {passageiro.map((passageiro) => (
+            {corrida.map((corrida) => (
                 <tr>
-                    <th>{passageiro.id}</th>
-                    <td>{passageiro.cpf}</td>
-                    <td>{passageiro.nome}</td>
-                    <td>{passageiro.dataNascimento}</td>
-                    <td>{passageiro.sexo}</td>
+                    <th>{corrida.id}</th>
+                    <td>{corrida.fkPassageiro}</td>
+                    <td>{corrida.fkMotorista}</td>
+                    <td>{corrida.valorCorrida}</td>
                 </tr>
             ))}
         </tbody>

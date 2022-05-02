@@ -13,7 +13,7 @@ export default function CadastroCliente() {
 
     function Cliente(e) {
         e.preventDefault();
-        if (campo1.)
+        
         api.post("/passageiros", {
             cpf:campo1,
             nome:campo2,

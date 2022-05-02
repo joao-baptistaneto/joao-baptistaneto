@@ -22,7 +22,7 @@ export default function CadastroMotorista() {
         async function pegaMotoristas() {
             const resposta = await api.get("/motoristas");
             if (resposta.status === 200) {
-                setMotorista(resposta.data);
+                    setMotorista(resposta.data);
             }
             console.log(resposta.data);
         }
