@@ -10,7 +10,7 @@ public class Motorista {
     @Column(name = "id_motorista", nullable = false)
     private Integer id;
 
-    @Column(name = "cpf", length = 11)
+    @Column(name = "cpf", length = 14)
     private String cpf;
 
     @Column(name = "nome", length = 50)
